@@ -1,0 +1,54 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>Login Page</title>
+  </head>
+  <body>
+  <section class="container-fluid">
+    <section class="row justify-content-center">
+      <section class="col-12 col-sm-6 col-md-3">
+        <form method="post" class="form-register" action="">
+            {% csrf_token %}
+            <h2 class="text-center">Sign in Here</h2>
+            <div >
+            <label>User Name</label>
+            <input placeholder="user name" type="text" class="form-control" name="username">
+             </div>
+            <div >
+            <label>Password</label>
+            <input placeholder="Password" type="password" class="form-control mb-2" name="password">
+             </div>
+            <p>Don't Have Account? <a href="{% url 'register' %}">Sign Up</a></p>
+            {% for message in messages %}
+                <p class="list-group-item list-group-item-success">{{message}}</p>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+      </section>
+    </section>
+  </section>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,6 @@
+for models
+title
+date
+author
+desc
+
